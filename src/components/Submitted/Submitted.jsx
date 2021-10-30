@@ -1,8 +1,20 @@
-
+import { useHistory } from "react-router";
 
 function Submitted() {
-    return(
-    <p>hi</p>
+    const history = useHistory();
+
+    const handleSubmit = () => {
+        history.push('/');
+    }
+
+    return (
+        <>
+            <header>Feedback!</header>
+            <div>
+                <h1>Thank You!</h1>
+                <button onClick={handleSubmit}>Leave New Feedback</button>
+            </div>
+        </>
     )
 }
 
