@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
 function Comments() {
-    const [comments, setComments] = useState('');
+    const feedback = useSelector(store => store.feedbackReducer)
+    const [comments, setComments] = useState(feedback.comments || '');
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -17,6 +18,10 @@ function Comments() {
         history.push('/review')
     }
 
+    const goBack = () => {
+        history.push('/support')
+    }
+
     return (
         <>
             <Header />
@@ -27,6 +32,7 @@ function Comments() {
                 placeholder="Comments"
                 onChange={(event) => setComments(event.target.value)}
             />
+            <button onClick={goBack}>BACK</button>
             <button onClick={handleSubmit}>NEXT</button>
         </>
     )

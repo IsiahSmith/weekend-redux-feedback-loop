@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
 function Support() {
-    const [support, setSupport] = useState('');
+    const feedback = useSelector(store => store.feedbackReducer)
+    const [support, setSupport] = useState(feedback.support || '');
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,6 +24,10 @@ function Support() {
         }
     }
 
+    const goBack = () => {
+        history.push('/understanding')
+    }
+
     return (
         <>
             <Header />
@@ -35,6 +40,7 @@ function Support() {
                 placeholder="Support?"
                 onChange={(event) => setSupport(event.target.value)}
             />
+            <button onClick={goBack}>BACK</button>
             <button onClick={handleSubmit}>NEXT</button>
         </>
     )

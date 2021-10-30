@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Feeling() {
-    const [feeling, setFeeling] = useState('');
+    const feedback = useSelector(store => store.feedbackReducer)
+    const [feeling, setFeeling] = useState(feedback.feeling || '');
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -27,16 +30,19 @@ function Feeling() {
         <>
             <Header />
             <h1>How are you feeling today?</h1>
-            <input
+            <TextField
+                variant="outlined"
+                id="Outlined-basic"
+                color="primary"
                 type="number"
                 max="5"
                 min="1"
                 required
                 value={feeling}
-                placeholder="feeling?"
+                label="feeling?"
                 onChange={(event) => setFeeling(event.target.value)}
             />
-            <button onClick={handleSubmit}>NEXT</button>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>NEXT</Button>
         </>
     )
 }

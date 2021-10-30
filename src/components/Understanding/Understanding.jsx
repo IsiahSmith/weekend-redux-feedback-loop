@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
 function Understanding() {
-    const [understanding, setUnderstanding] = useState('');
+    const feedback = useSelector(store => store.feedbackReducer)
+    const [understanding, setUnderstanding] = useState(feedback.understanding || '');
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,6 +24,10 @@ function Understanding() {
         }
     }
 
+    const goBack = () => {
+        history.push('/')
+    }
+
     return (
         <>
             <Header />
@@ -35,6 +40,7 @@ function Understanding() {
                 placeholder="understanding?"
                 onChange={(event) => setUnderstanding(event.target.value)}
             />
+            <button onClick={goBack}>BACK</button>
             <button onClick={handleSubmit}>NEXT</button>
         </>
     )
