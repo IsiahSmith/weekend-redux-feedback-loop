@@ -10,11 +10,17 @@ function Understanding() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type: 'ADD_UNDERSTANDING',
-            payload: understanding
-        });
-        history.push('/support')
+        if (understanding === '') {
+            alert('Response cannot be left blank')
+        } else if (understanding > 5 || understanding < 1) {
+            alert('Please keep your response between 1 and 5')
+        } else {
+            dispatch({
+                type: 'ADD_UNDERSTANDING',
+                payload: understanding
+            });
+            history.push('/support')
+        }
     }
 
     return (

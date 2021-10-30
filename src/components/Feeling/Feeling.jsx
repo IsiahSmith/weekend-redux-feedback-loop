@@ -10,11 +10,17 @@ function Feeling() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type: 'ADD_FEELING',
-            payload: feeling
-        });
-        history.push('/understanding')
+        if (feeling === '') {
+            alert('Response cannot be left blank')
+        } else if (feeling > 5 || feeling < 1) {
+            alert('Please keep your response between 1 and 5')
+        } else {
+            dispatch({
+                type: 'ADD_FEELING',
+                payload: feeling
+            });
+            history.push('/understanding')
+        }
     }
 
     return (

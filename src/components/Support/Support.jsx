@@ -10,11 +10,17 @@ function Support() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type: 'ADD_SUPPORT',
-            payload: support
-        });
-        history.push('/comments')
+        if (support === '') {
+            alert('Response cannot be left blank')
+        } else if (support > 5 || support < 1) {
+            alert('Please keep your response between 1 and 5')
+        } else {
+            dispatch({
+                type: 'ADD_SUPPORT',
+                payload: support
+            });
+            history.push('/comments')
+        }
     }
 
     return (
