@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
             console.log('Error in server POST', error);
             res, sendStatus(500);
         });
-});
+}); //End POST
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
