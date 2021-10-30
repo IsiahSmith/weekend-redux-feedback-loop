@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
-function Feeling1() {
+function Feeling() {
     const [feeling, setFeeling] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
@@ -11,10 +11,9 @@ function Feeling1() {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch({
-            type: 'ADD_FEEDBACK',
-            payload: {
-                feeling: feeling
-        }});
+            type: 'ADD_FEELING',
+            payload: feeling
+        });
         history.push('/understanding')
     }
 
@@ -33,4 +32,4 @@ function Feeling1() {
     )
 }
 
-export default Feeling1;
+export default Feeling;
