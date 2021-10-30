@@ -23,6 +23,9 @@ function Feeling() {
             <h1>How are you feeling today?</h1>
             <input
                 type="number"
+                max="5"
+                min="1"
+                required
                 value={feeling}
                 placeholder="feeling?"
                 onChange={(event) => setFeeling(event.target.value)}

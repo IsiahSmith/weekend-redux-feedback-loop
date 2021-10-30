@@ -1,19 +1,21 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function Review() {
     const feedback = useSelector(store => store.feedbackReducer)
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
         axios({
             method: 'POST',
             url: '/feedback',
             data: feedback
-        })
-            .then(response => {
-                console.log(response);
+        }).then(response => {
+                dispatch({
+                    type:'EMPTY_FEEDBACK'
+                })
                 history.push('/submitted')
             }).catch(error => {
                 console.log('Error in review POST', error);

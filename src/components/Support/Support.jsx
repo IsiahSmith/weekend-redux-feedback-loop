@@ -23,6 +23,8 @@ function Support() {
             <h1>How well are you being supported?</h1>
             <input
                 type="number"
+                max="5"
+                min="1"
                 value={support}
                 placeholder="Support?"
                 onChange={(event) => setSupport(event.target.value)}

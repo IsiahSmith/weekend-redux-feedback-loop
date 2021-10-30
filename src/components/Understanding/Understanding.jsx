@@ -23,6 +23,8 @@ function Understanding() {
             <h1>How well are you understanding the content?</h1>
             <input
                 type="number"
+                max="5"
+                min="1"
                 value={understanding}
                 placeholder="understanding?"
                 onChange={(event) => setUnderstanding(event.target.value)}
