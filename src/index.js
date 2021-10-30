@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { combineReducers } from 'redux';
-import { applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
-
-
+// OBJECT SET TO STATE
 let feedbackObject = {
     feeling: '',
     understanding: '',
@@ -32,3 +30,10 @@ const feedbackStore = createStore(
     }),
     applyMiddleware(logger)
 );
+
+ReactDOM.render(
+    <Provider store={feedbackStore}>
+        <App />
+    </Provider>,
+    document.getElementById('root'));
+registerServiceWorker();

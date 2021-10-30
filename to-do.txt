@@ -1,2 +1,4 @@
 server GET [X]
-reducer []
+server POST [X]
+reducer [X]
+store [X]
