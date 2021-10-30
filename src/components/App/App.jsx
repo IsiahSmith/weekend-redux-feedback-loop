@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path='/support'>
           <Support />
+        </Route>
+        <Route path='/comments'>
+          <Comments />
         </Route>
       </Router>
     </div>

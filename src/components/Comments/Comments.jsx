@@ -3,33 +3,33 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
-function Understanding() {
-    const [understanding, setUnderstanding] = useState('');
+function Comments() {
+    const [comments, setComments] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch({
-            type: 'ADD_UNDERSTANDING',
-            payload: understanding
+            type: 'ADD_COMMENTS',
+            payload: comments
         });
-        history.push('/support')
+        history.push('/review')
     }
 
     return (
         <>
             <Header />
-            <h1>How well are you understanding the content?</h1>
+            <h1>Any comments you want to leave?</h1>
             <input
-                type="number"
-                value={understanding}
-                placeholder="understanding?"
-                onChange={(event) => setUnderstanding(event.target.value)}
+                type="text"
+                value={comments}
+                placeholder="Comments"
+                onChange={(event) => setComments(event.target.value)}
             />
             <button onClick={handleSubmit}>NEXT</button>
         </>
     )
 }
 
-export default Understanding;
+export default Comments;
