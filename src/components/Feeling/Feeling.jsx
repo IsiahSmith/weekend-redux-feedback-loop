@@ -35,8 +35,6 @@ function Feeling() {
                 id="Outlined-basic"
                 color="primary"
                 type="number"
-                max="5"
-                min="1"
                 value={feeling}
                 label="feeling?"
                 onChange={(event) => setFeeling(event.target.value)}

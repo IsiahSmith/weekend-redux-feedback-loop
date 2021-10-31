@@ -40,8 +40,6 @@ function Understanding() {
                 id="Outlined-basic"
                 color="primary"
                 type="number"
-                max="5"
-                min="1"
                 value={understanding}
                 label="understanding?"
                 onChange={(event) => setUnderstanding(event.target.value)}

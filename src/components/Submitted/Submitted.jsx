@@ -10,7 +10,7 @@ function Submitted() {
 
     return (
         <>
-            <header>Feedback!</header>
+            <h2>Feedback!</h2>
             <div>
                 <h1>Thank You!</h1>
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Leave New Feedback</Button>

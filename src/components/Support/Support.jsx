@@ -40,8 +40,6 @@ function Support() {
                 id="Outlined-basic"
                 color="primary"
                 type="number"
-                max="5"
-                min="1"
                 value={support}
                 label="Support?"
                 onChange={(event) => setSupport(event.target.value)}
