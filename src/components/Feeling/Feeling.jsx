@@ -37,7 +37,6 @@ function Feeling() {
                 type="number"
                 max="5"
                 min="1"
-                required
                 value={feeling}
                 label="feeling?"
                 onChange={(event) => setFeeling(event.target.value)}

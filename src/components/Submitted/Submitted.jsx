@@ -1,4 +1,5 @@
 import { useHistory } from "react-router";
+import Button from '@mui/material/Button';
 
 function Submitted() {
     const history = useHistory();
@@ -12,7 +13,7 @@ function Submitted() {
             <header>Feedback!</header>
             <div>
                 <h1>Thank You!</h1>
-                <button onClick={handleSubmit}>Leave New Feedback</button>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>Leave New Feedback</Button>
             </div>
         </>
     )

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Comments() {
     const feedback = useSelector(store => store.feedbackReducer)
@@ -26,14 +28,17 @@ function Comments() {
         <>
             <Header />
             <h1>Any comments you want to leave?</h1>
-            <input
+            <Button variant="contained" color="primary" onClick={goBack}>BACK</Button>
+            <TextField
+                variant="outlined"
+                id="Outlined-basic"
+                color="primary"
                 type="text"
                 value={comments}
-                placeholder="Comments"
+                label="Comments"
                 onChange={(event) => setComments(event.target.value)}
             />
-            <button onClick={goBack}>BACK</button>
-            <button onClick={handleSubmit}>NEXT</button>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>NEXT</Button>
         </>
     )
 }

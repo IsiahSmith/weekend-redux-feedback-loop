@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Review() {
     const feedback = useSelector(store => store.feedbackReducer)
@@ -35,8 +37,8 @@ function Review() {
             <h3>Support: {feedback.support}</h3>
             <h3>Comments: {feedback.comments}</h3>
         </div>
-        <button onClick={goBack}>BACK</button>
-        <button onClick={handleSubmit}>SUBMIT</button>
+        <Button variant="contained" color="primary" onClick={goBack}>BACK</Button>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>SUBMIT</Button>
         </>
     )
 }

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Support() {
     const feedback = useSelector(store => store.feedbackReducer)
@@ -32,16 +34,19 @@ function Support() {
         <>
             <Header />
             <h1>How well are you being supported?</h1>
-            <input
+            <Button variant="contained" color="primary" onClick={goBack}>BACK</Button>
+            <TextField
+                variant="outlined"
+                id="Outlined-basic"
+                color="primary"
                 type="number"
                 max="5"
                 min="1"
                 value={support}
-                placeholder="Support?"
+                label="Support?"
                 onChange={(event) => setSupport(event.target.value)}
             />
-            <button onClick={goBack}>BACK</button>
-            <button onClick={handleSubmit}>NEXT</button>
+            <Button variant="contained" color="primary" onClick={handleSubmit}>NEXT</Button>
         </>
     )
 }
